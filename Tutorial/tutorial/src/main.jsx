@@ -15,7 +15,7 @@ import "bootstrap/dist/js/bootstrap.bundle.min";
 import TutorialsList from "./components/TutorialsList.jsx";
 import AddTutorial from "./components/AddTutorial.jsx";
 import Tutorial from "./components/Tutorial.jsx";
-import Home from "./pages/Home.jsx";
+import Home from "./pages/Home/Home.jsx";
 
 
 const router = createBrowserRouter([

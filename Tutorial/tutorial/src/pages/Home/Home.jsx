@@ -1,6 +1,6 @@
-import Header from "../division/Header.jsx";
-import TutorialsList from "../components/TutorialsList.jsx";
-import BodyContainer from "../components/bodycontainer/BodyContainer.jsx";
+import Header from "../../division/Header.jsx";
+import TutorialsList from "../../components/TutorialsList.jsx";
+import BodyContainer from "../../components/bodycontainer/BodyContainer.jsx";
 
 import HomeCSS from "./Home.module.css"
 export default function Home(){
