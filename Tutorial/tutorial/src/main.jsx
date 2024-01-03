@@ -16,6 +16,7 @@ import TutorialsList from "./components/TutorialsList.jsx";
 import AddTutorial from "./components/AddTutorial.jsx";
 import Tutorial from "./components/Tutorial.jsx";
 import Home from "./pages/Home/Home.jsx";
+import Login from "./pages/Login/Login.jsx";
 
 
 const router = createBrowserRouter([
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
     {
         path:"/tutorials",
         element:<Home/>,
+    },
+    {
+      path:"/login",
+      element:<Login/>
     },
     {
         path:"/add",
