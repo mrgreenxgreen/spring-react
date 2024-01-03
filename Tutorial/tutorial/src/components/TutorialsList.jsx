@@ -1,22 +1,22 @@
 import React, { useState, useEffect } from "react";
 import TutorialDataService from "../services/TutorialService.jsx";
 import { Link } from "react-router-dom";
+import "./TutorialList.css"
 
 const TutorialsList = () => {
+
+    //states
     const [tutorials, setTutorials] = useState([]);
     const [currentTutorial, setCurrentTutorial] = useState(null);
     const [currentIndex, setCurrentIndex] = useState(-1);
+
+    //search state
     const [searchTitle, setSearchTitle] = useState("");
+
 
     useEffect(() => {
         retrieveTutorials();
     }, []);
-
-    const onChangeSearchTitle = e => {
-        const searchTitle = e.target.value;
-        setSearchTitle(searchTitle);
-    };
-
     const retrieveTutorials = () => {
         TutorialDataService.getAll()
             .then(response => {
@@ -27,27 +27,21 @@ const TutorialsList = () => {
                 console.log(e);
             });
     };
-
     const refreshList = () => {
         retrieveTutorials();
         setCurrentTutorial(null);
         setCurrentIndex(-1);
     };
+    //search
 
     const setActiveTutorial = (tutorial, index) => {
         setCurrentTutorial(tutorial);
         setCurrentIndex(index);
     };
 
-    const removeAllTutorials = () => {
-        TutorialDataService.removeAll()
-            .then(response => {
-                console.log(response.data);
-                refreshList();
-            })
-            .catch(e => {
-                console.log(e);
-            });
+    const onChangeSearchTitle = e => {
+        const csearchTitle = e.target.value;
+        setSearchTitle(searchTitle);
     };
 
     const findByTitle = () => {
@@ -61,9 +55,22 @@ const TutorialsList = () => {
             });
     };
 
+
+    const removeAllTutorials = () => {
+        TutorialDataService.removeAll()
+            .then(response => {
+                console.log(response.data);
+                refreshList();
+            })
+            .catch(e => {
+                console.log(e);
+            });
+    };
+
     return (
         <div className="list row">
             <div className="col-md-8">
+
                 <div className="input-group mb-3">
                     <input
                         type="text"
@@ -82,9 +89,10 @@ const TutorialsList = () => {
                         </button>
                     </div>
                 </div>
+
             </div>
             <div className="col-md-6">
-                <h4>Tutorials List</h4>
+                <h4>Bicol Recipe List</h4>
 
                 <ul className="list-group">
                     {tutorials &&
@@ -111,7 +119,7 @@ const TutorialsList = () => {
             <div className="col-md-6">
                 {currentTutorial ? (
                     <div>
-                        <h4>Tutorial</h4>
+                        <h4>Recipe</h4>
                         <div>
                             <label>
                                 <strong>Title:</strong>
