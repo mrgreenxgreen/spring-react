@@ -9,6 +9,7 @@ const [User, SetUser] = useState("")
     return(
         <>
             <UserContext.Provider value={{User, SetUser}}>
+                <h1>Welcome to Login page</h1>
                 <NavLink to={"/tutorials"}>Home</NavLink>
                 <Header/>
                 <LoginForm/>
